@@ -15,6 +15,10 @@ function App() {
     return cidadesArray;
 }
 
+const dadosFiltrados = dados.sort((a, b) => {
+  return new Date(a.data_abertura).getTime() - new Date(b.data_abertura).getTime();
+});
+
  
 
   const postBusca = async (pagina: number) => {
@@ -133,7 +137,7 @@ function App() {
           <p style={{width: 600}}>Razão Social</p>
           <p>Data de Abertura</p>
         </div>
-        {dados.map((item, lenght) => (
+        {dadosFiltrados.map((item, lenght) => (
           <div className='container-dados'>
             <p style={{width: 100}}>{lenght}</p>
             <p style={{width: 160}}>{item.cnpj}</p>
